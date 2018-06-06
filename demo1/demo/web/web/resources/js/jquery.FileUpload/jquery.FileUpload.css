@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+div.j-fileupload {
+    font-size: 12px;
+    font-family: Tahoma, Helvetica, Arial, "宋体", sans-serif;
+}
+
+div.j-fileupload-btns {
+    margin: 4px;
+    overflow: hidden;
+    clear: both;
+    zoom: 1;
+}
+
+div.j-fileupload-labels {
+    background: #E9F0F4;
+    padding: 6px;
+    text-overflow: ellipsis;
+    /*height: 70px;*/
+    overflow-y: auto;
+    zoom: 1;
+}
+
+div.j-fileupload-labels div {
+    height: 18px;
+    line-height: 18px;
+    margin: 3px 0;
+}
+
+div.j-fileupload-label a.j-fileupload-down {
+    float: left;
+    margin: 0 0 0 3px;
+    color: #005eac;
+    text-decoration: underline;
+}
+
+div.j-fileupload-label a.j-fileupload-down:hover {
+    text-decoration: none;
+}
+
+div.j-fileupload-label em.j-fileupload-size {
+    float: left;
+    margin: 0 0 0 1px;
+    color: #000; /*#7B7B7B;*/
+    font-style: normal;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico {
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico-file {
+    background: url(file-bg.png) no-repeat;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico-del {
+    background: url(file-bg.png) -24px -24px no-repeat;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico-add {
+    background: url(file-bg.png) -44px -24px no-repeat;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico-down {
+    background: url(file-bg.png) -4px -24px no-repeat;
+}
+
+div.j-fileupload-label b.j-fileupload-label-ico-nom {
+    background: url(file-bg.png) -20px 0px no-repeat;
+}
+
+div.j-fileupload div.j-fileupload-label span {
+    margin: 0 6px;
+    float: left;
+    position: static;
+    width: auto;
+    height: 18px;
+    line-height: 18px;
+    border: none;
+    background: none;
+}
+
+div.j-fileupload-labels div a.j-fileupload-label-btn {
+    margin: 0px 6px;;
+    text-decoration: underline;
+    color: #005090;
+    float: left;
+}
+
+a.j-fileupload-files {
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    display: block;
+    /*border:1px solid #BEBEBE;
+     background:url(img/fu_btn.gif) left top no-repeat;*/
+    text-decoration: none;
+    font-size: 12px;
+    float: left;
+    position: static;
+    color: #005090;
+    margin-top: -5px;
+    margin-left: 0px;
+}
+
+div.j-fileupload span.j-fileupload-desc {
+    float: left;
+    margin: 0 0 0 4px;
+    color: #999999;
+    position: static;
+    width: auto;
+    height: 18px;
+    line-height: 18px;
+    border: none;
+    background: none;
+}
+
+div.j-fileupload a.j-fileupload-files:hover {
+    /*background-color:#FFFFEE;
+     background-position:0 -30px;*/
+    text-decoration: underline;
+}
+
+/*file设为透明，并覆盖整个触发面*/
+div.j-fileupload a.j-fileupload-files input {
+    width: 66px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: -53px;
+    filter: Alpha(opacity=0);
+    _filter: Alpha(opacity=0);
+    opacity: 0;
+}
+
+/*取消点击时的虚线框*/
+a.j-fileupload-files, a.j-fileupload-files input {
+    outline: none; /*ff*/
+    hide-focus: expression(this.hideFocus=true); /*ie*/
+}
+
+div.j-fileupload a.j-fileupload-disabled {
+    color: #ccc !important;
+}
+
+div.j-fileupload div.j-fileupload-lightbox {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+}

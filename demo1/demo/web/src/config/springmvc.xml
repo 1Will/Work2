@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 开启注解支持 -->
+    <mvc:annotation-driven/>
+
+    <!-- 开启定时器注解支持 -->
+    <task:annotation-driven scheduler="myScheduler"/>
+    <!-- 配置线程池，若不配置多任务下会有问题 -->
+    <task:scheduler id="myScheduler" pool-size="3"/>
+
+
+    <!-- 使用<context:annotation-config/>隐式地向Spring容器注册AutowiredAnnotationBeanPostProcessor、RequiredAnnotationBeanPostProcessor、
+    CommonAnnotationBeanPostProcessor以及PersistenceAnnotationBeanPostProcessor这4个BeanPostProcessor -->
+    <context:annotation-config/>
+
+    <!-- 注解实现事务,写在此处是为了扫描的包都可以进行事务管理 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <!-- 完成Bean创建和自动依赖注入的功能 -->
+    <context:component-scan base-package="demo.controller,demo.service,demo.dao"/>
+
+    <!-- 定义mvc的拦截器 -->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <mvc:interceptor>
+            <!-- 拦截请求 -->
+            <mvc:mapping path="/**"/>
+            <!-- 拦截过滤 -->
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+            <mvc:exclude-mapping path="/main/login"/>
+            <mvc:exclude-mapping path="/main/loginIn"/>
+            <mvc:exclude-mapping path="/main/loginOut"/>
+            <bean class="demo.interceptor.AuthInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 静态资源处理器 -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
+
+    <!-- 重定向 -->
+    <mvc:view-controller path="/" view-name="redirect:/main/login"/>
+
+    <!-- 内容协商管理器 -->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="favorPathExtension" value="true"/>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="favorParameter" value="true"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="xml" value="application/xml"/>
+                <entry key="json" value="application/json;charset=utf-8"/>
+                <entry key="xls" value="application/vnd.ms-excel"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- freemarker的配置 -->
+    <bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/view/"/>
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- ========================= VIEW定义 ========================= -->
+    <!-- 内容协商视图解析器；根据客户端不同的请求决定不同的view进行响应 -->
+    <!-- 会自动根据解析的contentType来决定使用哪个视图解析器（默认使用整个web应用中的viewResolver） -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <!-- 使用的内容协商管理器 -->
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="viewResolvers">
+            <list>
+                <!-- 针对freemarker的视图配置 -->
+                <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                    <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+                    <property name="contentType" value="text/html;charset=utf-8"/>
+                    <!-- url增加ftl后缀 -->
+                    <property name="suffix" value=".ftl"/>
+                    <property name="exposeRequestAttributes" value="true"/>
+                    <property name="exposeSessionAttributes" value="true"/>
+                    <property name="exposeSpringMacroHelpers" value="true"/>
+                    <!-- 定义相对路径的全局变量名 -->
+                    <property name="requestContextAttribute" value="request"/>
+                    <property name="cache" value="true"/>
+                </bean>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="cache" value="false"/>
+                    <property name="prefix" value="/WEB-INF/view/"/>
+                    <property name="suffix" value=".jsp"/>
+                    <property name="contentType" value="text/html;charset=utf-8"/>
+                    <property name="requestContextAttribute" value="request"/>
+                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 处理文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 (ISO-8859-1) -->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 最大内存大小 (10240)-->
+        <property name="maxInMemorySize" value="51200"/>
+        <!-- 最大文件大小，-1为无限止(-1) -->
+        <property name="maxUploadSize" value="-1"/>
+    </bean>
+
+</beans>

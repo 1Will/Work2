@@ -1,0 +1,267 @@
+
+html,body {
+	height:100%;
+    font-size: 14px;
+    font-family: "微软雅黑", Helvetica, Tahoma, Arial, sans-serif;
+    color: #000;
+}
+html {	
+	background:#00256f url(../image/login/bg.jpg) center top no-repeat ; 
+   
+}
+img {
+    border: 0;
+}
+.cf:before,.cf:after {
+    display: table;
+    content: "";
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+.logo{ margin:0 auto; width:960px; height:100px; background:#f5f5f51; margin-top:80px;}
+.footer{ position:absolute; bottom:-30px; left:0; color:#f1f1f1;  width:100%; text-align:left; text-indent:230px;  font-family: "微软雅黑", Helvetica, Tahoma, Arial, sans-serif; }
+/* 登陆页样式
+------------------------------------------ */
+.login-body {
+	margin: 0 auto;
+    width: 960px; 
+	height:280px;	
+	position: relative;
+
+	
+}
+.login-main {   
+    width: 960px;	
+	background:#fff;
+}
+.login-header {
+    height: 50px;
+    line-height: 50px;
+}
+
+.login-body .pr {   	
+    height: 290px;
+	background:url(../image/login/welcome1.jpg) no-repeat;
+}
+.leftBox{ float:left;  width:600px;  }
+.leftBox img{ width:630px; height:336px; border:0px solid #ffffff; }
+.login-form {    
+    width: 260px;  
+	height: 300px;
+    padding: 20px 20px 13px; 
+	*padding: 10px 20px 13px; 
+	margin-top:-40px;
+	margin-right:20px;
+	*margin-right:15px;
+	display:inline;
+	position:absolute;	
+	right:0px;
+	top:0px;
+}
+.login-form h3 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 20px;
+	*margin: 0 0 10px;
+    padding: 0;
+    line-height: 40px;
+    text-align: left;
+    color: #8D9CAA;
+	color:#555555;
+    *line-height: 40px;
+}
+.login-logo {
+	float:left;
+    display: inline-block;   
+    width: 30px;
+    height: 44px;
+    vertical-align: top;
+    background:#000000 url(../image/login/login_logo.png) no-repeat 0 0 ;	
+}
+.login-form .check-tips {
+	float:left;
+	width:100%;
+    color: #666666;
+    margin-top: 30px;
+	text-align:center;
+	display:inline
+}
+.login-form .item-box {
+    /* box-shadow: 0 1px 3px rgba(170, 170, 170, 0.8) inset; */
+    /* background-color: #fff; */
+	position:absolute;
+	right:0;
+	top:20px;
+}
+.login-form .item-box .item {
+    border-radius: 5px;
+}
+.login-form .item {
+    padding: 3px 10px 3px 12px;
+    border: 1px solid #ececec;
+    margin-bottom:20px;
+}
+.login-form .focus {
+    border: 1px solid #A6E1F3;
+    box-shadow: 0 0 12px #BAF7FF;
+}
+.login-form .icon-login-user,
+.login-form .icon-login-pwd,
+.login-form .icon-login-verifycode {
+    display: inline-block;
+    margin-right: 6px;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    background: url("../image/login/icon24_login.png") no-repeat;
+}
+.login-form .icon-login-user {
+    background-position: 0 0;
+}
+.login-form .icon-login-pwd {
+    background-position: -48px 0;
+}
+.login-form .icon-login-verifycode {
+    background-position: -24px 0;
+}
+.login-form input {
+    padding: 8px 0;
+    width: 190px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    font-family: "微软雅黑", arial, sans-serif;
+    vertical-align: middle;
+    border: 0 none;
+    background-color: #fff;
+    outline: 0;
+    resize: none;
+    color:#686868;
+    *padding: 7px 0;
+}
+#itemBox {
+    position: relative;
+}
+.placeholder_copy {
+    display: none;
+    position: absolute;
+    left: 48px;
+    font-size: 16px;
+    color: #ADADAD;
+}
+.placeholder_un {
+    top: 13px;
+}
+.placeholder_pwd {
+    top: 69px;
+}
+.placeholder_check {
+    top: 125px;
+}
+.login-form .focus   {
+}
+.login-form .verifycode input {
+    width: 166px;
+    font-size:16px;
+}
+.login-form .verifycode img {
+    vertical-align: middle;
+}
+.login-form .login_btn_panel {
+    margin: 40px 0 50px;
+}
+.login-form .login-btn {
+    padding: 3px 0;
+    width: 49%;
+    height: 45px;
+    font-size: 18px;  
+    font-family: '微软雅黑',arial,verdana;
+    color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0;
+    background-color: #146fdf;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+    -webkit-border-radius: 3px;   /* Webkit browsers */
+    border-radius:3px;            /* W3C syntax */
+}
+.login-form .login-btn:hover {
+    background-color: #2185ff;
+}
+.login-form .login-btn[disabled] {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    cursor: default;
+    box-shadow: none;
+}
+
+.login-form .login-pkibtn {
+    padding: 3px 0;
+    width: 49%;
+    height: 45px;
+    font-size: 18px;    
+    font-family: '微软雅黑',arial,verdana;
+    color: #6d798c;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0;
+    background-color: #e7f2f9;
+	*margin-left:5px;
+	border:1px solid #afbfcf;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+    -webkit-border-radius: 3px;   /* Webkit browsers */
+    border-radius:3px;            /* W3C syntax */
+}
+.login-form .login-pkibtn:hover {
+    background-color: #f3f7fb;	
+	
+}
+.login-form .login-pkibtn[disabled] {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    cursor: default;
+    box-shadow: none;
+}
+
+.login-form .login-btn .in {
+    display: none;
+}
+.login-form .log-in .in {
+    display: inline-block;
+}
+.login-form .log-in .on {
+    display: none;
+}
+.icon-loading {
+    display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    background: url(../image/login/loading_icon.gif) no-repeat 0 0;
+}
+
+
+.welcome{	
+	width:100%;
+    color:#666;  	
+	text-align:left;
+	
+}
+.welcome i{ float:left; display:none }
+.welcome i img{ width:40px; margin-right:3px; }
+.reloadverify{
+    color:#69C3FF;
+}
+
+img.verifyimg{
+	border: 1px solid #ececec;
+	width: 100%;
+    cursor: pointer;
+}
