@@ -1,0 +1,48 @@
+package com.didispace.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * @author
+ */
+@Controller
+public class DataController {
+
+    @RequestMapping("/data")
+    @ResponseBody
+    public String index(String name) {
+        String value="";
+        String Register = "{\"Master\":[{\"No\":\"0500000256\",\"HospitalName\":\"湖南省华容县人民医院\",\"DoctorNo\":\"zx100001\",\"PatientType\":\"自费病人\",\"PatientNo\":\"180910990002\",\"RegisterDate\":\"2018-07-09 00:00:00\",\"VisitNo\":\"2079450\",\"PatientName\":\"张三\",\"Money\":\"8.00\",\"Department\":\"门诊皮肤科\",\"Category\":\"佚名\",\"Address\":\"门诊二楼东\",\"Cfzbz\":\"初诊\",\"Registrar\":\"9999\"}]}";
+        String Prescription ="{\"Table\":[{\"PRINTNO\":\"1\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"RP_PROP\":\"儿童\",\"GH_SN\":\"02079449\",\"CREATE_TIME\":\"2016-07-12 00:00:00\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"PAT_TYPE_STR\":\"3001011\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"USER_ID\":\"10201201\",\"Checker\":\"张思\",\"Reviewer\":\"章武\",\"Allocater\":\"李二\",\"MedicinePer\":\"王丽\",\"NAME\":\"感康\",\"BZ_SPEC\":\"6*1\",\"SL\":\"1\",\"BZ_UNIT\":\"板\",\"ITVDAY_ID\":\"一日二次，每次1粒\"},{\"PRINTNO\":\"1\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"RP_PROP\":\"儿童\",\"GH_SN\":\"02079449\",\"CREATE_TIME\":\"2016-07-12 00:00:00\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"PAT_TYPE_STR\":\"3001011\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"USER_ID\":\"10201201\",\"Checker\":\"张思\",\"Reviewer\":\"章武\",\"Allocater\":\"李二\",\"MedicinePer\":\"王丽\",\"NAME\":\"阿莫西林\",\"BZ_SPEC\":\"12*2\",\"SL\":\"1\",\"BZ_UNIT\":\"盒\",\"ITVDAY_ID\":\"一日三次，每次2粒\"},{\"PRINTNO\":\"2\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"RP_PROP\":\"普通\",\"GH_SN\":\"02079411\",\"CREATE_TIME\":\"2016-07-22 00:00:00\",\"GNAME\":\"张三啊\",\"Sex\":\"男\",\"AGE\":\"30\",\"PAT_TYPE_STR\":\"3001011\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"USER_ID\":\"10201201\",\"Checker\":\"张思\",\"Reviewer\":\"章武\",\"Allocater\":\"李二\",\"MedicinePer\":\"王丽\",\"BZ_SPEC\":\"1\",\"BZ_UNIT\":\"瓶\",\"ITVDAY_ID\":\"一日二次，每次1勺，冲服\",\"NAME\":\"止咳糖浆\",\"SL\":\"1\"},{\"PRINTNO\":\"2\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"RP_PROP\":\"普通\",\"GH_SN\":\"02079411\",\"CREATE_TIME\":\"2016-07-22 00:00:00\",\"GNAME\":\"张三啊\",\"Sex\":\"男\",\"AGE\":\"30\",\"PAT_TYPE_STR\":\"3001011\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"USER_ID\":\"10201201\",\"Checker\":\"张思\",\"Reviewer\":\"章武\",\"Allocater\":\"李二\",\"MedicinePer\":\"王丽\",\"BZ_SPEC\":\"10*1\",\"BZ_UNIT\":\"盒\",\"ITVDAY_ID\":\"一日三次，每次1袋\",\"NAME\":\"感冒灵\",\"SL\":\"1\"}]}";
+        String DailyCharge ="{\"Master\":[{\"HOS_NAME\":\"湖南省华容县人民医院\",\"EMP_NAME\":\"儿童\",\"EMP_CODE\":\"02079449\",\"START_TIME_STR\":\"2016-07-12 08:00:00\",\"END_TIME_STR\":\"2016-07-12 18:00:00\",\"START_NO\":\"10020030010\",\"END_NO\":\"10020030020\",\"FORM_NUM\":\"30\",\"BLANK_FP\":\"1\",\"SSWYCE\":\"0\"}],\"Detail1\":[{\"TYPE_NAME\":\"西药费\",\"ZJE\":\"100\"},{\"TYPE_NAME\":\"中药费\",\"ZJE\":\"200\"},{\"TYPE_NAME\":\"检查费\",\"ZJE\":\"30\"},{\"TYPE_NAME\":\"手术费\",\"ZJE\":\"3000\"},{\"TYPE_NAME\":\"卫生材料费\",\"ZJE\":\"0\"}],\"Detail2\":[{\"TYPE_NAME\":\"现金支付\",\"ZJE\":\"200\"},{\"TYPE_NAME\":\"医保支付\",\"ZJE\":\"10000\"}]}";
+        String Checkout="{\"Master\":[{\"PRINTNO\":\"1\",\"NAME\":\"不规则抗体筛查\",\"GH_SN\":\"2079449\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"BB_NAME_STR\":\"一号\",\"DPT_STR\":\"er\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"REQ_TIME_STR\":\"2016-07-12 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"MONEY\":\"100\",\"JY_NOTE\":\"多喝水\"},{\"PRINTNO\":\"1\",\"NAME\":\"感染标志物\",\"GH_SN\":\"2079449\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"BB_NAME_STR\":\"一号\",\"DPT_STR\":\"er\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"REQ_TIME_STR\":\"2016-07-12 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"MONEY\":\"100\",\"JY_NOTE\":\"多喝水\"},{\"PRINTNO\":\"2\",\"NAME\":\"感染标志物\",\"GH_SN\":\"2079412\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"BB_NAME_STR\":\"一号\",\"DPT_STR\":\"er\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"REQ_TIME_STR\":\"2016-07-12 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"MONEY\":\"100\",\"JY_NOTE\":\"多喝水\"},{\"PRINTNO\":\"2\",\"NAME\":\"感染标志物\",\"GH_SN\":\"2079412\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"BB_NAME_STR\":\"一号\",\"DPT_STR\":\"er\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"REQ_TIME_STR\":\"2016-07-12 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_NAME\":\"内科\",\"DOC_NAME\":\"李四\",\"MONEY\":\"100\",\"JY_NOTE\":\"多喝水\"}]}";
+        String Check ="{\"Table\":[{\"PRINTNO\":\"1\",\"GH_SN\":\"2079449\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"GNAME\":\"张三\",\"Sex\":\"男\",\"AGE\":\"30\",\"REQ_TIME_STR\":\"2016-07-12 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_STR\":\"内科\",\"DPT_NAME\":\"外科\",\"DOC_NAME\":\"李四\",\"MONEY\":\"100\",\"JC_NOTE\":\"多喝水水啊\",\"JC_BODY_STR\":\"肺部\",\"Xiangmu\":\"内科检查\",\"CHECK\":\"没有其他重大患病史\"},{\"PRINTNO\":\"2\",\"GH_SN\":\"2079433\",\"HOS_NAME\":\"湖南省华容县人民医院\",\"GNAME\":\"张三2\",\"Sex\":\"男\",\"AGE\":\"32\",\"REQ_TIME_STR\":\"2016-07-22 00:00:00\",\"Result\":\"病毒性感冒\",\"DPT_STR\":\"内科\",\"DPT_NAME\":\"外科\",\"DOC_NAME\":\"李四2\",\"MONEY\":\"100\",\"JC_NOTE\":\"多喝水水啊2\",\"JC_BODY_STR\":\"肺部2\",\"Xiangmu\":\"内科检查2\",\"CHECK\":\"没有其他重大患病史2\"}]}";
+        String Charge ="{\"Detail\":[{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查1\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查2\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查3\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查4\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查5\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"1\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查6\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"2\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查7\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"2\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查8\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"2\",\"pay\":\"1\"},{\"NAME\":\"超声常规检查9\",\"SL\":\"1\",\"ZJE\":\"1\",\"type\":\"2\",\"pay\":\"1\"}],\"Master\":[{\"FP_SN\":\"2195796\",\"jigouleixing\":\"未知\",\"No\":\"02079449\",\"PATIENT_NAME\":\"张三\",\"SEX\":\"男\",\"PAT_TYPE_STR\":\"自费\",\"sbh\":\"34001010001\",\"TCZF\":\"0\",\"ZHZF\":\"0\",\"qtyb\":\"0\",\"XJZFJE\":\"100\",\"HOSNAME\":\"芜湖第五人民医院\",\"DOC_NAME\":\"0131\",\"JS_DATE_STR\":\"2016-07-12 00:00:00\"}]}";
+        String HospitalApply="{\"Master\":[{\"HOS_NAME\":\"芜湖第五人民医院\",\"qzrq\":\"2017-07-12 00:00:00\",\"zyh\":\"2195796\",\"mzh\":\"123213\",\"PATIENT_NAME\":\"张三\",\"SEX\":\"男\",\"AGE\":\"31\",\"jg\":\"皖芜湖\",\"zy\":\"程序员\",\"kb\":\"骨科\",\"ryzd\":\"骨折\",\"ysqm\":\"王五\",\"ryrq\":\"2017-07-12 00:00:00\",\"cyrq\":\"2017-08-12 00:00:00\",\"days\":\"30\",\"dz\":\"镜湖区连塘新村\",\"fb\":\"10001\",\"bqA\":\"1\",\"bqB\":\"0\",\"bqC\":\"1\"}]}";
+        if ("Register".equals(name)){
+            value = Register;
+        }
+        if ("Prescription".equals(name)){
+            value = Prescription;
+        }
+        if ("DailyCharge".equals(name)){
+            value = DailyCharge;
+        }
+        if ("Checkout".equals(name)){
+            value = Checkout;
+        }
+        if ("Check".equals(name)){
+            value = Check;
+        }
+        if ("Charge".equals(name)){
+            value = Charge;
+        }
+        if ("HospitalApply".equals(name)){
+            value = HospitalApply;
+        }
+        return value;
+    }
+
+}

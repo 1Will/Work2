@@ -1,0 +1,469 @@
+﻿Object Report
+	Version='6.6.2.0'
+	Title='分组记录后空白画斜线'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	ConnectionString='XML'
+	QuerySQL='j2.txt'
+	Object Printer
+		Size=256
+		Width=14
+		Height=19
+		LeftMargin=0.5
+		TopMargin=1
+		RightMargin=0.5
+		BottomMargin=1
+	End
+	Object DetailGrid
+		CenterView=T
+		ShowColLine=F
+		ShowRowLine=F
+		BorderPrintType=Content
+		PageColumnDirection=AcrossDown
+		PrintAdaptRepeat=F
+		AppendBlankRow=T
+		Object Border
+			Styles=[]
+			Object Pen
+				Width=0
+			End
+		End
+		Object Recordset
+			Items Field
+				Item
+					Name='NAME'
+				End
+				Item
+					Name='BZ_SPEC'
+				End
+				Item
+					Name='SL'
+					Type=Integer
+				End
+				Item
+					Name='BZ_UNIT'
+				End
+				Item
+					Name='ITVDAY_ID'
+				End
+				Item
+					Name='HOS_NAME'
+				End
+				Item
+					Name='GH_SN'
+				End
+				Item
+					Name='CREATE_TIME'
+					Type=DateTime
+					Format='yyyy年MM月dd日'
+				End
+				Item
+					Name='GNAME'
+				End
+				Item
+					Name='Sex'
+				End
+				Item
+					Name='AGE'
+					Type=Integer
+				End
+				Item
+					Name='PAT_TYPE_STR'
+				End
+				Item
+					Name='Result'
+				End
+				Item
+					Name='DPT_NAME'
+				End
+				Item
+					Name='DOC_NAME'
+				End
+				Item
+					Name='USER_ID'
+				End
+				Item
+					Name='Checker'
+				End
+				Item
+					Name='Reviewer'
+				End
+				Item
+					Name='Allocater'
+				End
+				Item
+					Name='MedicinePer'
+				End
+				Item
+					Name='RP_PROP'
+				End
+				Item
+					Name='PRINTNO'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Column1'
+				Width=12.991
+			End
+		End
+		Object ColumnContent
+			Height=1.79917
+			RowsPerPage=5
+			Items ColumnContentCell
+				Item
+					Column='Column1'
+					FreeCell=T
+					Items Control
+						Item
+							Type=MemoBox
+							Name='list'
+							Left=0.396875
+							Width=11.8004
+							Height=0.79375
+							Object Font
+								Name='宋体'
+								Size=120000,0
+								Weight=400
+								Charset=134
+							End
+							Text='[#NAME#]    [#BZ_SPEC#]    [#SL#][#BZ_UNIT#]'
+						End
+						Item
+							Type=MemoBox
+							Name='usage'
+							Left=1.40229
+							Top=0.79375
+							Width=11.1919
+							Height=0.79375
+							Object Font
+								Name='宋体'
+								Size=120000,0
+								Weight=400
+								Charset=134
+							End
+							Text='用法:[#ITVDAY_ID#]'
+						End
+					End
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='Column1'
+					Text='Column1'
+				End
+			End
+		End
+		Items Group
+			Item
+				Name='Group1'
+				ByFields='PRINTNO'
+				Object GroupHeader
+					Height=0
+				End
+				Object GroupFooter
+					Height=0
+					NewPage=After
+				End
+			End
+			Item
+				Name='PageGroup'
+				PageGroup=T
+				Object GroupHeader
+					Height=5.60917
+					PrintGridBorder=F
+					Items Control
+						Item
+							Type=Barcode
+							Name='Barcode1'
+							Left=0.211667
+							Top=0.211667
+							Width=3
+							Height=1.37583
+							BarcodeType=Code128C
+							Text='[#GH_SN#]'
+						End
+						Item
+							Type=FreeGrid
+							Name='FreeGrid3'
+							Left=10.2129
+							Top=0.211667
+							Object Border
+								Styles=[DrawLeft|DrawTop|DrawRight|DrawBottom]
+							End
+							ColumnCount=1
+							RowCount=2
+							Items FreeGridColumn
+								Item[1]
+									Width=2.46063
+								End
+							End
+							Items FreeGridRow
+								Item[1]
+									Height=0.846667
+								End
+								Item[2]
+									Height=0.79375
+								End
+							End
+							Items FreeGridCell
+								Item[1,1]
+									Object Font
+										Name='宋体'
+										Size=105000,0
+										Bold=T
+										Charset=134
+									End
+									TextAlign=MiddleCenter
+									Text='[#RP_PROP#]处方'
+								End
+								Item[2,1]
+									Object Font
+										Name='宋体'
+										Size=105000,0
+										Bold=T
+										Charset=134
+									End
+									TextAlign=MiddleCenter
+									Text='当日有效'
+								End
+							End
+						End
+						Item
+							Type=FreeGrid
+							Name='FreeGrid1'
+							Top=1.79917
+							Object Border
+								Object Pen
+									Width=2
+								End
+							End
+							RowCount=3
+							Items FreeGridColumn
+								Item[1]
+									Width=4.65667
+								End
+								Item[2]
+									Width=2.09021
+								End
+								Item[3]
+									Width=0.9525
+								End
+								Item[4]
+									Width=1.08479
+								End
+								Item[5]
+									Width=3.99521
+								End
+							End
+							Items FreeGridRow
+								Item[1]
+									Height=0.9525
+								End
+								Item[2]
+									Height=0.95
+								End
+								Item[3]
+									Height=0.95
+								End
+							End
+							Items FreeGridCell
+								Item[1,1]
+									Text='门诊号:[#GH_SN#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawBottom]
+									End
+									ColSpan=2
+								End
+								Item[1,3]
+									TextAlign=MiddleRight
+									Text='[#CREATE_TIME#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawBottom]
+									End
+									ColSpan=3
+								End
+								Item[2,1]
+									Text='姓名:[#GNAME#]'
+								End
+								Item[2,2]
+									Text='性别:[#Sex#]'
+								End
+								Item[2,3]
+									Text='年龄:[#AGE#]'
+									ColSpan=2
+								End
+								Item[2,5]
+									Text='费别:[#PAT_TYPE_STR#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawBottom]
+									End
+								End
+								Item[3,1]
+									Text='临床诊断:[#Result#]'
+									BorderCustom=T
+									ColSpan=3
+								End
+								Item[3,4]
+									Text='科别:[#DPT_NAME#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawBottom]
+									End
+									ColSpan=2
+								End
+							End
+						End
+						Item
+							Type=StaticBox
+							Name='p'
+							Left=0.396875
+							Top=4.57729
+							Width=0.608542
+							Height=0.978958
+							Object Font
+								Name='新宋体'
+								Size=180000,0
+								Bold=T
+							End
+							TextAlign=BottomLeft
+							Text='P'
+						End
+						Item
+							Type=MemoBox
+							Name='MemoBox1'
+							Left=4.39208
+							Top=0.211667
+							Width=4.60375
+							Height=0.79375
+							Object Font
+								Name='宋体'
+								Size=120000,0
+								Bold=T
+								Charset=134
+							End
+							TextAlign=MiddleCenter
+							Text='[#HOS_NAME#]'
+						End
+						Item
+							Type=StaticBox
+							Name='r'
+							Top=4.57729
+							Width=0.396875
+							Height=0.978958
+							Object Font
+								Name='新宋体'
+								Size=180000,0
+								Bold=T
+							End
+							TextAlign=TopRight
+							Text='R'
+						End
+					End
+				End
+				Object GroupFooter
+					Height=2.01
+					PrintGridBorder=F
+					Items Control
+						Item
+							Type=MemoBox
+							Name='MemoBox2'
+							Top=0.211667
+							Width=7.19667
+							Height=0.79375
+							Text='医生:[#DOC_NAME#]   [#USER_ID#]'
+						End
+						Item
+							Type=FreeGrid
+							Name='FreeGrid2'
+							Top=1.00542
+							ColumnCount=4
+							RowCount=1
+							Items FreeGridColumn
+								Item[1]
+									Width=3.12208
+								End
+								Item[2]
+									Width=3.25438
+								End
+								Item[3]
+									Width=3.01625
+								End
+								Item[4]
+									Width=3.59833
+								End
+							End
+							Items FreeGridRow
+								Item[1]
+									Height=0.899583
+								End
+							End
+							Items FreeGridCell
+								Item[1,1]
+									Text='审核:[#Reviewer#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawTop|DrawBottom]
+									End
+								End
+								Item[1,2]
+									Text='调配:[#Allocater#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawTop|DrawBottom]
+									End
+								End
+								Item[1,3]
+									Text='核对:[#Checker#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawTop|DrawBottom]
+									End
+								End
+								Item[1,4]
+									Text='发药:[#MedicinePer#]'
+									BorderCustom=T
+									Object Border
+										Styles=[DrawTop|DrawBottom]
+									End
+								End
+							End
+						End
+					End
+					PrintAtBottom=T
+				End
+			End
+		End
+	End
+	Items Control
+		Item
+			Type=StaticBox
+			Name='StaticBox38'
+			Left=2.19604
+			Top=6.00604
+			Width=9.39271
+			Height=10.0013
+			CustomDraw=T
+			CustomDrawScript='//Sender.DrawDefault(); //默认绘制，这里不需要，只要画一条斜线\r\n\r\n//var RecordCount = Report.SystemVarValue(6);  //取当前页记录个数 grsvGroup2RowNo 6 二级分组的当前分组项的序号，从1开始计数。 \r\nvar RecordCount = Report.SystemVarValue2(23, 2);  //grsvGroupRowCount=23 当前分组项的记录条数\r\nif (RecordCount < 5)\r\n{\r\n  var Graphics = Report.Graphics;\r\n\r\n  var left = Graphics.Left;\r\n  var top = Graphics.Top;\r\n  var right = left + Graphics.Width;\r\n  var bottom = top + Graphics.Height - 8;\r\n\r\n  //根据已显示记录数确定空白顶端的位置\r\n  top += (Graphics.Height * RecordCount / 5 + 8);\r\n\r\n  //设定绘出线型\r\n  Graphics.SelectPen(1, 0/*black*/, 0/*grpsSolid*/);\r\n\r\n  //画从下到上的斜线\r\n  Graphics.MoveTo(left, bottom);\r\n  Graphics.LineTo(right, top);\r\n\r\n  //恢复绘出线型设定，SelectPen调用之后，必须对应调用RestorePen\r\n  Graphics.RestorePen();\r\n}'
+			Object Border
+				Styles=[DrawLeft|DrawTop|DrawRight|DrawBottom]
+				Object Pen
+					Width=0
+					Color=Red
+				End
+			End
+		End
+	End
+End
