@@ -1,4 +1,4 @@
-package com.didispace.entity;
+package com.report.entity;
 
 public class Report {
     public String grf;

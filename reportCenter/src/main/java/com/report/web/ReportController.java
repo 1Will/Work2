@@ -1,7 +1,7 @@
-package com.didispace.web;
+package com.report.web;
 
-import com.didispace.entity.Report;
-import com.didispace.util.FileUtil;
+import com.report.entity.Report;
+import com.report.util.FileUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;

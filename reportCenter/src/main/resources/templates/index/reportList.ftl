@@ -15,6 +15,7 @@
         <col width="5%"/>
         <col width="15%"/>
         <col width="15%"/>
+        <col width="15%"/>
         <col width="10%"/>
         <col/>
     </colgroup>
@@ -23,6 +24,7 @@
         <th>序号</th>
         <th>名称</th>
         <th>演示</th>
+        <th>插件演示</th>
         <th>H5演示</th>
         <th>操作</th>
     </tr>
@@ -34,8 +36,9 @@
             <tr>
                 <td>${num}</td><#assign num++/>
                 <td><a href="/downloadReport?report=${(o)!}"><font style='color:dodgerblue'>${(o)!}</font></a></td>
+                <td><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary" href="javascript:void(0)" onclick="webReport('${(o)!}')">show</a></td>
                 <td><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary" href="javascript:void(0)" onclick="showReport('${(o)!}')">show</a></td>
-                <td><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary" href="javascript:void(0)" onclick="showH5Report('${(o)!}')">H5show</a></td>
+                <td><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary" href="javascript:void(0)" onclick="showH5Report('${(o)!}')">show</a></td>
                 <td>
                     <div class="layui-btn-group">
                         <a class="layui-btn layui-btn-sm" href="javascript:void(0)" onclick="edit('${(o)!}')">编辑</a>
@@ -46,7 +49,7 @@
         </#list>
     <#else>
         <tr class="trhover">
-            <td class="none" colspan="5">无记录</td>
+            <td class="none" colspan="6">无记录</td>
         </tr>
     </#if>
     </tbody>
@@ -63,6 +66,10 @@
     }
     function showH5Report(name){
         window.location.href="/H5Show?report="+name;
+    }
+
+    function webReport(name){
+        window.location.href="/webReport?report="+name;
     }
 
     function edit(name) {
